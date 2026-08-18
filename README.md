@@ -68,7 +68,7 @@ portfolio-website/
 ### Installation
 
 ```bash
-git clone [https://github.com/SamayGandhi/Portfolio.git](https://github.com/SamayGandhi/Portfolio.git)
+git clone https://github.com/SamayGandhi/Portfolio.git
 cd portfolio-website
 npm install
 ```
