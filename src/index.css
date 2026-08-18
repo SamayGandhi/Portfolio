@@ -1,0 +1,453 @@
+@import "tailwindcss";
+
+/* =========================
+   Google Font
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+/* =========================
+   Design Tokens
+========================= */
+:root {
+  /* Brand palette */
+  --color-bg: #030712;
+  --color-bg-soft: #0b1120;
+  --color-surface: #0f172a;
+  --color-primary: #2563eb;
+  --color-primary-light: #60a5fa;
+  --color-accent: #7c3aed;
+  --color-accent-light: #a78bfa;
+  --color-cyan: #06b6d4;
+  --color-cyan-light: #22d3ee;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+
+  /* Borders / surfaces */
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(148, 163, 184, 0.22);
+
+  /* Elevation */
+  --shadow-sm: 0 4px 14px rgba(2, 6, 23, 0.35);
+  --shadow-md: 0 12px 32px rgba(2, 6, 23, 0.45);
+  --shadow-lg: 0 24px 64px rgba(2, 6, 23, 0.55);
+  --shadow-glow-primary: 0 12px 32px rgba(37, 99, 235, 0.28);
+  --shadow-glow-accent: 0 12px 32px rgba(124, 58, 237, 0.28);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.35s;
+  --dur-slow: 0.6s;
+
+  /* Radius scale */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  /* Layout */
+  --nav-height: 84px;
+  --section-y: 128px;
+  --section-y-tablet: 96px;
+  --section-y-mobile: 72px;
+}
+
+/* =========================
+   Global Base
+   (box-sizing, margin/padding reset already
+   provided by Tailwind's Preflight layer)
+========================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--color-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01" on, "cv01" on;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   Accessibility: focus states
+========================= */
+a, button, input, textarea, select, [tabindex] {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================
+   Selection & Scrollbar
+========================= */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-accent-light));
+}
+
+/* =========================
+   Base Elements
+========================= */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* =========================
+   Container & Layout
+========================= */
+.container {
+  width: min(1280px, 92%);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+section {
+  position: relative;
+  padding: var(--section-y) 0;
+}
+
+/* =========================
+   Background Glow
+========================= */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow1, .glow2, .glow3 {
+  border-radius: 50%;
+}
+
+.glow1 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: var(--color-primary);
+  filter: blur(180px);
+  opacity: .22;
+  top: -180px;
+  left: -150px;
+}
+
+.glow2 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: var(--color-accent);
+  filter: blur(180px);
+  opacity: .20;
+  bottom: -180px;
+  right: -150px;
+}
+
+.glow3 {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  background: var(--color-cyan);
+  filter: blur(150px);
+  opacity: .18;
+  top: 40%;
+  left: 45%;
+}
+
+/* =========================
+   Typography & Glass
+========================= */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-primary-light);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-cyan));
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 4rem;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.glass {
+  background: rgba(15, 23, 42, .55);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+.glass:hover {
+  border-color: rgba(59, 130, 246, .35);
+  box-shadow: var(--shadow-glow-primary), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.card-hover {
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-cyan-light), var(--color-accent-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-standard),
+    background var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), #1d4ed8);
+  color: #fff;
+  box-shadow: var(--shadow-glow-primary);
+}
+.btn-primary:hover {
+  box-shadow: 0 16px 40px rgba(37, 99, 235, .38);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, .04);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(96, 165, 250, .4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: rgba(147, 51, 234, .12);
+  color: #fff;
+  border: 1px solid rgba(147, 51, 234, .3);
+}
+.btn-ghost:hover {
+  background: rgba(147, 51, 234, .22);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 11px 22px;
+  font-size: 0.9rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* =========================
+   Chips / Badges
+========================= */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+}
+
+.chip-solid {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp .8s ease both;
+}
+
+/* =========================
+   Floating Dock
+========================= */
+.dock-item:hover {
+  background: var(--color-primary) !important;
+  transform: translateY(-5px);
+}
+
+/* =========================
+   Modal
+========================= */
+.modal-overlay {
+  padding: 30px;
+}
+.modal-content {
+  padding: 40px;
+}
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+  .modal-content {
+    padding: 24px !important;
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 992px) {
+  :root {
+    --section-y: var(--section-y-tablet);
+  }
+}
+@media (max-width: 768px) {
+  .container { width: 94%; padding-inline: .75rem; }
+  .section-title { font-size: 2.3rem; }
+  .section-subtitle { font-size: 1rem; margin-bottom: 3rem; }
+  :root {
+    --section-y: var(--section-y-mobile);
+  }
+}
+@media (max-width: 480px) {
+  .section-title { font-size: 2rem; }
+  .section-subtitle { font-size: .95rem; line-height: 1.8; }
+  .btn { padding: 13px 26px; font-size: 0.92rem; }
+}
