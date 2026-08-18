@@ -11,7 +11,8 @@ import {
 import {
   SiMongodb,
   SiJavascript,
-  SiTailwindcss,
+  SiExpress,
+  SiMysql,
 } from "react-icons/si";
 
 import { Typewriter } from "react-simple-typewriter";
@@ -187,7 +188,8 @@ function Hero() {
               ["Node.js", <FaNodeJs />],
               ["MongoDB", <SiMongodb />],
               ["JavaScript", <SiJavascript />],
-              ["Tailwind", <SiTailwindcss />],
+              ["Express.js", <SiExpress />],
+              ["MySQL", <SiMysql />],
             ].map(([name, icon]) => (
               <div
                 key={name}

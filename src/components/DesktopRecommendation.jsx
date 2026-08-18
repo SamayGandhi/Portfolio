@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaDesktop,
@@ -12,6 +12,7 @@ function DesktopRecommendation() {
   const [open, setOpen] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
   const [dontShowAgain, setDontShowAgain] = useState(false);
+  const dismissedThisSession = useRef(false);
 
   useEffect(() => {
     const checkDevice = () => {
@@ -25,7 +26,11 @@ function DesktopRecommendation() {
           navigator.userAgent
         );
 
-      if (isMobile && !alreadySeen) {
+      if (
+        isMobile &&
+        !alreadySeen &&
+        !dismissedThisSession.current
+      ) {
         document.body.style.overflow = "hidden";
         setOpen(true);
       } else {
@@ -56,6 +61,20 @@ function DesktopRecommendation() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closePopup();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open, dontShowAgain]);
+
   const closePopup = () => {
     if (dontShowAgain) {
       localStorage.setItem(
@@ -63,6 +82,8 @@ function DesktopRecommendation() {
         "true"
       );
     }
+
+    dismissedThisSession.current = true;
 
     document.body.style.overflow = "auto";
     setShowGuide(false);

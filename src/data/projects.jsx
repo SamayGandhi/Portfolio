@@ -135,12 +135,12 @@ const projects = [
 
     featured: true,
 
-    coverImage: "/projects/smart-interviewer/cover.jpg",
+    coverImage: "/projects/smart-interviewer/cover.png",
 
     gallery: [
-      "/projects/smart-interviewer/1.jpg",
-      "/projects/smart-interviewer/2.jpg",
-      "/projects/smart-interviewer/3.jpg",
+      "/projects/smart-interviewer/1.png",
+      "/projects/smart-interviewer/2.png",
+      "/projects/smart-interviewer/3.png",
     ],
 
     githubRepo: "Smart-Interviewer",
@@ -151,8 +151,7 @@ const projects = [
     },
 
     technologies: [
-      "React",
-      "Node.js",
+      "Python",
       "AI",
     ],
 
@@ -182,61 +181,6 @@ const projects = [
 
   {
     id: 4,
-
-    title: "System Architect AI",
-
-    category: "AI",
-
-    status: "Planned",
-
-    featured: true,
-
-    coverImage: "/projects/system-architect-ai/cover.jpg",
-
-    gallery: [
-      "/projects/system-architect-ai/1.jpg",
-      "/projects/system-architect-ai/2.jpg",
-      "/projects/system-architect-ai/3.jpg",
-    ],
-
-    githubRepo: "System-Architect-AI",
-
-    live: {
-      enabled: false,
-      url: "",
-    },
-
-    technologies: [
-      "React",
-      "AI",
-      "Mermaid",
-    ],
-
-    description:
-      "AI powered software architecture assistant capable of generating scalable system design diagrams and architecture suggestions.",
-
-    features: [
-      "Architecture Generator",
-      "Mermaid Diagram",
-      "Flow Charts",
-      "System Design",
-      "Microservice Suggestion",
-      "Cloud Ready Design",
-      "Modern UI",
-      "Export Diagram",
-    ],
-
-    challenges:
-      "Generating accurate architecture diagrams for different software systems.",
-
-    learnings:
-      "Prompt engineering, architecture planning and diagram generation.",
-
-    future:
-      "AWS deployment architecture, Kubernetes diagrams and database optimization suggestions.",
-  },
-  {
-    id: 5,
 
     title: "Stadium360",
 
@@ -294,7 +238,7 @@ const projects = [
   },
 
   {
-    id: 6,
+    id: 5,
 
     title: "Inventory Management System",
 
@@ -324,7 +268,6 @@ const projects = [
       "MySQL",
       "HTML",
       "CSS",
-      "JavaScript",
     ],
 
     description:
@@ -352,7 +295,7 @@ const projects = [
   },
 
   {
-    id: 7,
+    id: 6,
 
     title: "Employee Payroll Management System",
 
@@ -409,7 +352,7 @@ const projects = [
   },
 
   {
-    id: 8,
+    id: 7,
 
     title: "Course Comparator",
 
