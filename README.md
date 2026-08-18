@@ -4,7 +4,7 @@ My personal developer portfolio, built with React and Vite. It showcases my prof
 
 ## Live Demo
 
-[portfolio-nine-omega-eow5hp0ocr.vercel.app](portfolio-nine-omega-eow5hp0ocr.vercel.app)
+[https://portfolio-nine-omega-eow5hp0ocr.vercel.app](https://portfolio-nine-omega-eow5hp0ocr.vercel.app)
 
 ## Features
 
@@ -68,7 +68,7 @@ portfolio-website/
 ### Installation
 
 ```bash
-git clone [Add your repository link]
+git clone [https://github.com/SamayGandhi/Portfolio.git](https://github.com/SamayGandhi/Portfolio.git)
 cd portfolio-website
 npm install
 ```
@@ -146,4 +146,4 @@ This project is deployed on [Vercel](https://vercel.com/).
 
 - GitHub: [https://github.com/SamayGandhi](https://github.com/SamayGandhi)
 - LinkedIn: [https://www.linkedin.com/in/samay-gandhi-1b468b2b8](https://www.linkedin.com/in/samay-gandhi-1b468b2b8)
-- Portfolio: [portfolio-nine-omega-eow5hp0ocr.vercel.app](portfolio-nine-omega-eow5hp0ocr.vercel.app)
+- Portfolio: [https://portfolio-nine-omega-eow5hp0ocr.vercel.app](https://portfolio-nine-omega-eow5hp0ocr.vercel.app)
