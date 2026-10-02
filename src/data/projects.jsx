@@ -408,6 +408,70 @@ const projects = [
     future:
       "AI course recommendation, price tracking and direct enrollment support.",
   },
+  {
+  id: 8,
+
+  title: "SmartLOR",
+
+  category: "Education",
+
+  status: "Completed",
+
+  featured: true,
+
+  coverImage: "/projects/smartlor/01-login.png",
+
+  gallery: [
+    "/projects/smartlor/02-student-dashboard.png",
+    "/projects/smartlor/03-new-lor-request.png",
+    "/projects/smartlor/04-professor-inbox.png",
+    "/projects/smartlor/05-recommendation-workspace.png",
+    "/projects/smartlor/06-notifications.png",
+  ],
+
+  githubRepo: "SmartLOR",
+
+  live: {
+    enabled: false,
+    url: "",
+  },
+
+  technologies: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JWT",
+    "PDFKit",
+  ],
+
+  description:
+    "Secure web-based Letter of Recommendation management platform that connects students, professors and administrators through a structured role-based workflow for requesting, verifying, approving and generating Letters of Recommendation.",
+
+  features: [
+    "Student LOR Requests",
+    "Professor Verification",
+    "Admin Management",
+    "Role-Based Access",
+    "Supporting Document Upload",
+    "Recommendation Workspace",
+    "PDF Generation",
+    "Notification System",
+    "Request Status Tracking",
+    "Secure Document Access",
+    "Automatic File Cleanup",
+    "Responsive Premium UI",
+  ],
+
+  challenges:
+    "Designing a secure multi-role workflow where student requests, supporting documents, professor verification, recommendation writing, PDF generation and administrative approval remain synchronized without exposing sensitive documents.",
+
+  learnings:
+    "Role-based authentication, secure REST API development, MongoDB data modeling, document management, PDF generation, notification workflows and building a full-stack React application.",
+
+  future:
+    "Email notifications, configurable university LOR templates, digital signatures, advanced analytics, cloud document storage and AI-assisted recommendation insights.",
+  },
 ];
 
 export default projects;
